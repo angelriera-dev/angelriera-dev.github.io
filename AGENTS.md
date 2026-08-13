@@ -20,9 +20,12 @@
 - Keep Tailwind utility classes in `class:list` arrays when dynamic (see `src/components/ui/Card.astro`).
 - TypeScript is enabled; keep types close to Astro props (`interface Props { ... }`).
 
-## Testing Guidelines
-- No automated test framework is configured in this repo.
-- If you add tests, document the framework and add a script in `package.json`.
+## Internacionalización (i18n)
+
+- **Rutas estáticas:** `/`, `/es/`, `/pt/` (SEO & Caching preferente).
+- **No Prop Drilling:** No pases `locale` o `basePath` por props.
+- **Detección:** Usa `src/utils/i18n.ts` (`getLocale(Astro.url.pathname)`) para detectar el idioma actual en cualquier componente.
+- **Configuración:** `src/content/i18n/site.ts` es la única fuente de verdad para idiomas disponibles y traducciones.
 
 ## Commit & Pull Request Guidelines
 - Git history mixes Conventional Commits (`feat:`, `fix:`, `chore:`, `refactor:`) and informal messages.

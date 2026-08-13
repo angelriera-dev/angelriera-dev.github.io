@@ -6,13 +6,9 @@ import bg from "@/assets/media/bg/bg-skills.png";
 import HeaderText from "../ui/HeaderText.astro";
 import Icon from "@/assets/Icon.astro";
 import type { IconType } from "@/assets/Icon.astro";
-import type { Locale } from "@/content/i18n/site";
+import { getLocale } from "@/utils/i18n";
 
-interface Props {
-    locale?: Locale;
-}
-
-const { locale = "es" } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
 const services =
     locale === "pt" ? servicesPt : locale === "en" ? servicesEn : servicesEs;
 ---

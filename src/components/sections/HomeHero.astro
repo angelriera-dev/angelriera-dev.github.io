@@ -1,15 +1,12 @@
 ---
 import bg from "@/assets/media/bg/hero-haker-hoodie_100.png";
 import Btn from "@/components/ui/Btn.astro";
-import { siteCopy, type Locale } from "@/content/i18n/site";
+import { siteCopy } from "@/content/i18n/site";
+import { getLocale } from "@/utils/i18n";
 
-interface Props {
-    locale?: Locale;
-    basePath?: string;
-}
-
-const { locale = "es", basePath = "/" } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
 const copy = siteCopy[locale];
+const basePath = locale === 'en' ? '/' : `/${locale}/`;
 ---
 
 <style define:vars={{ image: `url("${bg.src}")` }}>
@@ -81,7 +78,7 @@ const copy = siteCopy[locale];
             </h2>
 
             <div class="flex flex-wrap items-center justify-center gap-4">
-                <a href={`${basePath}portafolio`}>
+                <a href={`${basePath}portfolio`}>
                     <Btn theme="primary" size="lg"> {copy.hero.portfolioCta} </Btn>
                 </a>
 

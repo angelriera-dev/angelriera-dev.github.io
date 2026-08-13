@@ -1,32 +1,38 @@
 ---
 // const bord = require('/src/assets/svg/nav/Interface.svg')
 
+import { LOCALES, siteCopy } from "@/content/i18n/site";
+import { getLocale } from "@/utils/i18n";
 import { pages } from "@/content/consts";
-import { siteCopy, type Locale } from "@/content/i18n/site";
 
 import { Image } from "astro:assets";
-
 import Logo from "@/assets/Logo.png";
 import SvgBgMovil from "./BgMovil.svg";
-
 import Icon from "@/assets/Icon.astro";
 
-interface Props {
-    locale?: Locale;
-    basePath?: string;
-}
-
-const { locale = "es", basePath = "/" } = Astro.props;
+const locale = getLocale(Astro.url.pathname);
 const copy = siteCopy[locale];
-const toEs = "/";
-const toPt = "/pt";
-const toEn = "/en";
+const basePath = locale === 'en' ? '/' : `/${locale}/`;
 
-const languages = [
-    { code: "es", label: "ES", href: toEs },
-    { code: "pt", label: "PT", href: toPt },
-    { code: "en", label: "EN", href: toEn },
-];
+// @ponytail: dynamic languages from config, maintaining current path.
+const currentPath = Astro.url.pathname;
+const languages = LOCALES.map((code) => {
+    // Remove current locale from path if it exists
+    const pathWithoutLocale = currentPath.startsWith(`/${locale}`) 
+        ? currentPath.replace(`/${locale}`, '') 
+        : currentPath;
+    
+    // Construct new path
+    const href = code === "en" 
+        ? (pathWithoutLocale === "" ? "/" : pathWithoutLocale) 
+        : `/${code}${pathWithoutLocale === "/" ? "" : pathWithoutLocale}`;
+        
+    return {
+        code,
+        label: code.toUpperCase(),
+        href: href
+    };
+});
 
 const currentLanguage = languages.find((lang) => lang.code === locale) ?? languages[0];
 const otherLanguages = languages.filter((lang) => lang.code !== currentLanguage.code);
@@ -40,7 +46,7 @@ const otherLanguages = languages.filter((lang) => lang.code !== currentLanguage.
     />
 
     <div class="flex justify-between items-center pt-[7%] pb-2 sm:py-4 mx-[4%]">
-        <a href={`${basePath}#home`} class="text-white">
+        <a href={`${locale === 'en' ? '/' : `/${locale}/`}#home`} class="text-white">
             <Image class="hidden md:flex -mb-3" src={Logo} alt={"logo"} />
         </a>
         <div class="flex flex-col w-full md:w-auto md:ml-auto">

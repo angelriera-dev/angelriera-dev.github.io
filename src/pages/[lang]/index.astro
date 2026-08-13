@@ -1,0 +1,19 @@
+---
+import Layout from "@layouts/index.astro";
+import Skills from "@sections/Skills.astro";
+import HomeHero from "@sections/HomeHero.astro";
+import Portfolio from "@sections/Portfolio/Home.astro";
+import Socials from "@sections/Socials.astro";
+import { LOCALES } from "@/content/i18n/site";
+
+export function getStaticPaths() {
+    return LOCALES.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+---
+
+<Layout>
+    <section><HomeHero /></section>
+    <section><Portfolio /></section>
+    <section><Skills /></section>
+    <section><Socials /></section>
+</Layout>

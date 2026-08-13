@@ -1,0 +1,13 @@
+---
+import Layout from "@layouts/index.astro";
+import PortfolioPage from "@sections/Portfolio/Page.astro";
+import { LOCALES } from "@/content/i18n/site";
+
+export function getStaticPaths() {
+    return LOCALES.filter(l => l !== 'en').map(lang => ({ params: { lang } }));
+}
+---
+
+<Layout>
+    <PortfolioPage />
+</Layout>

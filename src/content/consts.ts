@@ -2,75 +2,75 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 export const SITE_TITLE =
-    "Senior Software Engineer | AppSec & Infraestructura";
+  "Senior Software Engineer | AppSec & Infraestructura";
 export const SITE_DESCRIPTION = `Ingeniero de software senior especializado en Django y Next.js, con enfoque en arquitectura segura, AppSec y despliegues resilientes con Docker y cloud.`;
 
 import type { IconType } from "@/assets/Icon.astro";
 
-interface pagesType{
-     name:string,
-     link:string,
-     icon: IconType
+interface pagesType {
+  name: string,
+  link: string,
+  icon: IconType
 }
 
-export const pages:pagesType[] = [
-    { name: "home", icon: "nav.home", link: "#home" },
-    { name: "portfolio", icon: "nav.portfolio", link: "#portfolio" },
-    { name: "services", icon: "nav.services", link: "#services" },
-    { name: "contact", icon: "nav.contact", link: "#contact" },
-    // { name: "about", icon: "about.svg", link: "/#about" },
-    // { name: "blog", icon: "blog.svg", link: "/blog" },
+export const pages: pagesType[] = [
+  { name: "home", icon: "nav.home", link: "#home" },
+  { name: "portfolio", icon: "nav.portfolio", link: "#portfolio" },
+  { name: "services", icon: "nav.services", link: "#services" },
+  { name: "contact", icon: "nav.contact", link: "#contact" },
+  // { name: "about", icon: "about.svg", link: "/#about" },
+  // { name: "blog", icon: "blog.svg", link: "/blog" },
 ]
 
 
-export const socialLinks:pagesType[] = [
-    // {
-    //     name: "twitter",
-    //     link: "https://twitter.com/CodeRagnarok_",
-    //     icon: "social.twitter"
-    // },
-    {
-        name: "git",
-        link: "https://github.com/CodeRagnarok07",
-        icon: "social.github"
+export const socialLinks: pagesType[] = [
+  // {
+  //     name: "twitter",
+  //     link: "https://twitter.com/CodeRagnarok_",
+  //     icon: "social.twitter"
+  // },
+  {
+    name: "git",
+    link: "https://github.com/angelriera-dev",
+    icon: "social.github"
 
-    },
-    {
-        name: "Linkedin",
-        link: "https://www.linkedin.com/in/angelriera/",
-        icon: "social.linkedin"
-    }
-    // {
-    //     name: "ig",
-    //     link: "https://www.instagram.com/angelfeliperch/",
-    //     icon: "social.instagram"
-    // },
+  },
+  {
+    name: "Linkedin",
+    link: "https://www.linkedin.com/in/angelriera/",
+    icon: "social.linkedin"
+  }
+  // {
+  //     name: "ig",
+  //     link: "https://www.instagram.com/angelfeliperch/",
+  //     icon: "social.instagram"
+  // },
 
-    // {
-    //     name: "discord",
-    //     link: "#",
-    //     icon: "discord.svg"
-    // },
-    // {
-    //     name: "facebook",
-    //     link: "#",
-    //     icon: "facebook.svg"
-    // },
-  
-    // {
-    //     name: "tiktok",
-    //     link: "#",
-    //     icon: "tiktok.svg"
-    // },
-    // {
-    //     name: "twicht",
-    //     link: "#",
-    //     icon: "twicht.svg"
-    // },
-  
-    // {
-    //     name: "youtube",
-    //     link: "#",
-    //     icon: "youtube.svg"
-    // },
+  // {
+  //     name: "discord",
+  //     link: "#",
+  //     icon: "discord.svg"
+  // },
+  // {
+  //     name: "facebook",
+  //     link: "#",
+  //     icon: "facebook.svg"
+  // },
+
+  // {
+  //     name: "tiktok",
+  //     link: "#",
+  //     icon: "tiktok.svg"
+  // },
+  // {
+  //     name: "twicht",
+  //     link: "#",
+  //     icon: "twicht.svg"
+  // },
+
+  // {
+  //     name: "youtube",
+  //     link: "#",
+  //     icon: "youtube.svg"
+  // },
 ]
